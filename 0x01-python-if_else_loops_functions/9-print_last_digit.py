@@ -2,4 +2,5 @@
 def print_last_digit(number):
     """Print the last digit of a number."""
     i = number - (10 * (number / 10))
-    return i
+    print("{}".format(i, end=""))
+    return (i)
