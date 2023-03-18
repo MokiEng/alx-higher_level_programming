@@ -9,4 +9,4 @@ def square_matrix_simple(matrix=[]):
     for col in matrix:
         result = list(map(lambda x: x**2, col))
         new_matrix.append(result)
-    return 
+    return new_matrix
