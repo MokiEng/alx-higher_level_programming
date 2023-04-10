@@ -2,7 +2,6 @@
 """ defines an empty class called BaseGeometry."""
 
 
-class BasseGeometry:
-    """represents a class BaseGeometry.
-    """
+class BaseGeometry:
+    """represents a class BaseGeometry."""
     pass
