@@ -2,8 +2,6 @@
 
 const dict = require('./101-data').dict;
 
-console.log(dict);
-
 const newDict = {};
 
 for (const userId in dict) {
