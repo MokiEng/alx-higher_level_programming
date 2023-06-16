@@ -14,8 +14,8 @@ if __name__ == "__main__":
     '''Create a cursor object to execute SQL queries.'''
 
     cur = db.cursor()
-    cur.execute("""SELECT * FROM states WHERE name
-                LIKE BINARY 'N%' ORDER BY states.id""")
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
+                .format(sys.argv[4]))
     '''Fetch all the rows returned by the query.'''
     rows = cur.fetchall()
     ''' Display the results.'''
