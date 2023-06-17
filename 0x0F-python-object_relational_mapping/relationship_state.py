@@ -4,6 +4,10 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from relationship_city import Base, City
+from sqlalchemy.ext.declarative import declarative_base
+
+mymetadata = MetaData()
+Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
