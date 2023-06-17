@@ -13,8 +13,8 @@ if __name__ == "__main__":
     '''Create a cursor object to interact with the database.'''
     cur = db.cursor()
     '''Execute the SQL query to retrieve the cities.'''
-    match = sys.argv[4]
-    cur.execute("SELECT * FROM states WHERE name LIKE %s", (match, ))
+    cur.execute("""SELECT cities.id, cities.name, states.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id""")
     '''Fetch all the results.'''
     rows = cur.fetchall()
     '''Display the results.'''
