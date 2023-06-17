@@ -17,9 +17,6 @@ if __name__ == '__main__':
                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
 
-    '''Bind the engine to the Base class.'''
-    Base.metadata.bind = engine
-
     '''Create all tables defined in the metadata.'''
     Base.metadata.create_all(engine)
 
