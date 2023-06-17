@@ -18,14 +18,11 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
     '''Bind the engine to the Base class.'''
-    Base.metadata.bind = engine
+    Base.metadata.create_all(engine)
 
     '''Create a session to interact with the database.'''
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    '''Query all City objects and their associated State objects.'''
-    cities = session.query(City).order_by(City.id).all()
 
     '''Display the cities.'''
     for instance in session.query(State).order_by(State.id):
