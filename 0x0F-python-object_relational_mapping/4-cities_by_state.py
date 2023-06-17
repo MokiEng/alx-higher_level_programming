@@ -19,7 +19,7 @@ if __name__ == "__main__":
     rows = cur.fetchall()
     '''Display the results.'''
     for row in rows:
-         print(row)
+        print(row)
     '''Close the cursor and the connection.'''
     cur.close()
     db.close()
