@@ -7,48 +7,19 @@ import MySQLdb
 import sys
 
 
-def list_cities(username, password, database):
-    '''Connect to MySQL server.'''
-    try:
-        conn = MySQLdb.connect(host='localhost', port=3306,
-                             user=username, passwd=password, db=database)
-    except MySQLdb.Error as e:
-        print("Error connecting to MySQL: {}".format(e))
-        sys.exit(1)
-
-    '''Create a cursor object to interact with the database.'''
-    cursor = conn.cursor()
-
-    '''Execute the SQL query to retrieve the cities.'''
-    query = "SELECT * FROM cities ORDER BY cities.id ASC"
-    try:
-        cursor.execute(query)
-    except MySQLdb.Error as e:
-        print("Error executing the query: {}".format(e))
-        sys.exit(1)
-
-    '''Fetch all the results.'''
-    results = cursor.fetchall()
-
-    '''Close the cursor and the connection.'''
-    cursor.close()
-    conn.close()
-
-    '''Display the results.'''
-    for row in results:
-        print(row)
-
-
-'''
-Check if the script is run directly and gather the command-line arguments.
-'''
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    '''Call the function to list cities.'''
-    list_cities(username, password, database)
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    '''Create a cursor object to interact with the database.'''
+    cur = db.cursor()
+    '''Execute the SQL query to retrieve the cities.'''
+    match = sys.argv[4]
+    cur.execute("SELECT * FROM states WHERE name LIKE %s", (match, ))
+    '''Fetch all the results.'''
+    rows = cur.fetchall()
+    '''Display the results.'''
+    for row in rows:
+         print(row)
+    '''Close the cursor and the connection.'''
+    cur.close()
+    db.close()
