@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 '''
 a python script that lists all cities
 from the database hbtn_0e_4_usa.
@@ -8,8 +8,8 @@ import sys
 
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
     '''Create a cursor object to interact with the database.'''
     cur = db.cursor()
     '''Execute the SQL query to retrieve the cities.'''
