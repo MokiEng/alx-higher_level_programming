@@ -8,8 +8,8 @@ import MySQLdb
 
 def list_states(username, password, database):
     '''Connect to MySQL server.'''
-    db = MySQLdb.connect(user=username, passwd=password,
-                         db=database, host='localhost', port=3306)
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
     ''' Create a cursor object to execute SQL queries.'''
     cursor = db.cursor()
 
