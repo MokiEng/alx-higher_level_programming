@@ -3,7 +3,6 @@
 
 from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.orm import relationship
-from relationship_city import Base, City
 from sqlalchemy.ext.declarative import declarative_base
 
 my_metadata = MetaData()
