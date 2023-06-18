@@ -8,13 +8,13 @@ import sys
 
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
     '''Create a cursor object to interact with the database.'''
     cur = db.cursor()
     '''Execute the SQL query to retrieve the cities.'''
-    cur.execute("""SELECT cities.id, cities.name, states.name FROM
-                cities INNER JOIN states ON states.id=cities.state_id""")
+    cur.execute("""SELECT * FROM states WHERE name
+                LIKE BINARY 'N%' ORDER BY states.id""")
     '''Fetch all the results.'''
     rows = cur.fetchall()
     '''Display the results.'''
