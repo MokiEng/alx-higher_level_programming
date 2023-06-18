@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     '''Display the cities.'''
     st = session.query(State).join(City).order_by(City.id).all()
-    
+
     for state in st:
         for city in state.cities:
             print("{}: {} -> {}".format(city.id, city.name, state.name))
