@@ -25,10 +25,11 @@ if __name__ == "__main__":
     session = Session()
 
     '''Display the cities.'''
-    for instance in session.query(State).order_by(State.id):
-        for city_ins in instance.cities:
-            print(city_ins.id, city_ins.name, sep=": ", end="")
-            print(" -> " + instance.name)
+    st = session.query(State).join(City).order_by(City.id).all()
+    
+    for state in st:
+        for city in state.cities:
+            print("{}: {} -> {}".format(city.id, city.name, state.name))
 
     '''Close the session.'''
     session.close()
