@@ -69,4 +69,4 @@ Python provides several ORM libraries, with SQLAlchemy being one of the most pop
      session.close()
      ```
 
-This short README provides a brief overview of Python - Object-Relational Mapping using SQLAlchemy. The process involves establishing a connection, defining a mapped class, creating the table, and working with the database using a session object. Refer to SQLAlchemy's documentation for detailed information and advanced features provided by the library.
+This short README provides a brief overview of Python - Object-Relational Mapping using SQLAlchemy. The process involves establishing a connection, defining a mapped class, creating the table, and working with the database using a session object. Refer to SQLAlchemy's documentation for detailed information and advanced features provided by the  library.
