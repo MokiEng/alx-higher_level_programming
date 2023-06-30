@@ -11,8 +11,13 @@ import requests
 import sys
 
 
-def get_x_request_id(url):
-    '''get request id.'''
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <URL>")
+        sys.exit(1)
+
+    url = sys.argv[1]
+
     try:
         response = requests.get(url)
         x_request_id = response.headers.get('X-Request-Id')
@@ -21,13 +26,4 @@ def get_x_request_id(url):
         else:
             print("X-Request-Id not found in the response header.")
     except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python script.py <URL>")
-        sys.exit(1)
-
-    url = sys.argv[1]
-    get_x_request_id(url)
+        print(f"{e}")
