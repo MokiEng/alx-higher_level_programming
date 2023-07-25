@@ -6,9 +6,8 @@ const fs = require('fs');
 function readAndPrintFileContent(filePath) {
   fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err) {
-      console.error('Error reading the file:', err);
+      console.error(err);
     } else {
-      console.log('File content:');
       console.log(data);
     }
   });
