@@ -1,16 +1,15 @@
 #!/usr/bin/node
-
 const request = require('request');
-const apiUrl = process.argv[2];
+const apiUrl= process.argv[2];
 
-request(apiUrl, function (err, _res, body) {
+request(apiUrl, function (err, response, body) {
   if (err) {
     console.log(err);
-  } else if (_res.statusCode === 200) {
+  } else if (response.statusCode === 200) {
     const completed = {};
-    const tasks_comp = JSON.parse(body);
-    for (const val in tasks_comp) {
-      const task = tasks_comp[val];
+    const tasks = JSON.parse(body);
+    for (const k in tasks) {
+      const task = tasks[k];
       if (task.completed === true) {
         if (completed[task.userId] === undefined) {
           completed[task.userId] = 1;
@@ -21,6 +20,6 @@ request(apiUrl, function (err, _res, body) {
     }
     console.log(completed);
   } else {
-    console.log('An error occured. Status code: ' + _res.statusCode);
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
