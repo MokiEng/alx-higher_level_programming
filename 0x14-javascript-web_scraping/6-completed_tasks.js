@@ -29,9 +29,3 @@ function countCompletedTasks(apiUrl) {
     }
   });
 }
-
-// Read the command-line argument (API URL)
-const apiUrl = process.argv[2];
-
-// Call the function to compute the number of completed tasks by user ID
-countCompletedTasks(apiUrl);
