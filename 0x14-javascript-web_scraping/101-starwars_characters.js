@@ -1,9 +1,9 @@
 !/usr/bin/node
 
 const request = require('request');
-const apiUrl = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+const api_Url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 
-request(apiUrl, function (error, response, body) {
+request(api_Url, function (error, response, body) {
   if (!error) {
     const characters = JSON.parse(body).characters;
     printCharacters(characters, 0);
